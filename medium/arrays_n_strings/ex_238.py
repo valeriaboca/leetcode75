@@ -15,5 +15,28 @@ def productExceptSelf(nums: List[int]) -> List[int]:
             suffix *= nums[j]
         return answer
 
+
+# Brute Force Solution
+# def productExceptSelf(nums: List[int]) -> List[int]:
+        
+#     prefix = [nums[0]]
+#     for i in range(1, len(nums)):
+#         prefix.append(nums[i] * prefix[i -1])        
+
+#     suffix = [1] * len(nums)
+#     suffix[len(nums) - 1] = nums[-1]
+#     for j in range(len(nums) -2, -1, -1):
+#         suffix[j] = nums[j] * suffix[j + 1]
+
+#     answer = []
+#     for i in range(len(nums)):
+#         if i == 0:
+#             answer.append(suffix[i + 1])
+#         elif i == len(nums) - 1:
+#                 answer.append(prefix[i - 1])
+#         else:
+#             answer.append(prefix[i - 1] * suffix[i + 1])
+#     return answer
+
 nums = [1,2,3,4]
 print(productExceptSelf(nums))
